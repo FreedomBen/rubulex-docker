@@ -5,8 +5,8 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/podman run --rm -p 54323:80 --name rubulex rubulex
-ExecStop=/usr/bin/podman stop -t 2 rubulex
+ExecStart=/usr/bin/docker run --rm -p 4567:80 --name rubulex rubulex
+ExecStop=/usr/bin/docker stop -t 2 rubulex
 
 [Install]
 WantedBy=local.target
