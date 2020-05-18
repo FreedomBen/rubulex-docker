@@ -1,0 +1,13 @@
+[Unit]
+Description=Rubulex
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/podman run --rm -p 54323:80 --name rubulex rubulex
+ExecStop=/usr/bin/podman stop -t 2 rubulex
+
+[Install]
+WantedBy=local.target
+
